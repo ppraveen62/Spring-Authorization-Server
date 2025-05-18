@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Info</title>
+</head>
+<body>
+<h1>User Information</h1>
+<div th:if="${userName}">
+    <p>Full Name: <span th:text="${userName}"></span></p>
+</div>
+<div th:if="${userClaims}">
+    <h2>Claims:</h2>
+    <ul>
+        <li th:each="claim : ${userClaims}" th:text="${claim.key + ': ' + claim.value}"></li>
+    </ul>
+</div>
+<p><a th:href="@{/}">Back to Home</a></p>
+</body>
+</html>

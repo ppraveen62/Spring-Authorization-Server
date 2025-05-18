@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>OAuth2 Client</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+<div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/oauth2/authorization/auth-server}">Login with Auth Server</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <p>You are logged in as <span sec:authentication="name"></span></p>
+    <p><a th:href="@{/user}">View User Info</a></p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+</body>
+</html>
