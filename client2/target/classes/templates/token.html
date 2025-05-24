@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Token Info</title>
+</head>
+<body>
+<h1>Token Details</h1>
+<p><strong>Client Name:</strong> <span th:text="${clientName}"></span></p>
+<p><strong>Access Token:</strong> <code th:text="${accessToken}"></code></p>
+<p th:if="${refreshToken}"><strong>Refresh Token:</strong> <code th:text="${refreshToken}"></code></p>
+
+<form action="/call-resource" method="get">
+    <button type="submit">Call Resource Server</button>
+</form>
+
+<p th:if="${resourceResponse}">
+    <strong>Resource Response:</strong> <code th:text="${resourceResponse}"></code>
+</p>
+
+<form action="/logout" method="get">
+    <button type="submit">logout</button>
+</form>
+</body>
+</html>
